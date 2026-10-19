@@ -1,0 +1,103 @@
+ #include <iostream>
+#include <algorithm>
+#include <cmath>
+#include <iomanip>
+#include <string>
+using namespace std;
+#include <cstring>
+#include <fstream>
+#include<vector>
+const int max_size = 10 ; 
+int top = -1 ;
+int item [max_size];
+
+void clearstack(){top=-1;
+
+}
+bool isemptysstack(){
+    if(top==-1){
+        return true;}
+        else {return false ;}
+    }
+
+    bool isfullstack(){
+        if(top ==max_size-1){return true ;}
+        else {return false ;} 
+    }
+
+
+    void push(int x ){
+        if(isfullstack()){cout<<"stack is full";}
+
+        else {
+            top++;
+            item[top]= x;
+            cout<<"data innsert ....... \n";
+        }
+    }
+    void pop(int&x){if(isemptysstack){cout<<"stack is overflow\n";
+
+    }
+    else {
+        x = item[top];
+        top--;
+        cout<<"removed from sttack  \n ";
+    }
+}
+
+void display (){
+    if(isemptysstack){cout<<"stack is empty \n";}
+    else{
+        cout<<"the stack data is \n";
+        for (int i = top ; i>=0 ; i--){
+            cout<<item[i]<<endl;
+        }
+    }
+    
+}
+
+
+    
+ 
+
+
+
+
+
+
+int main () {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+
+
+    int x ;
+    push(5);
+    cout<< " \n" ;
+    push (4);
+    cout<<" \n";
+  push(3);
+    cout<<"\n";
+    push(2);
+    cout<<"\n";
+    pop (x);
+    cout<<"x"<<x<<endl;
+    display();
+    clearstack();
+    display();
+    return 0 ;
+
+    
+
+    
+
+
+
+
+
+
+
+ 
+}
+
+

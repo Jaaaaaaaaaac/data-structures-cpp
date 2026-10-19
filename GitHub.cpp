@@ -7,54 +7,37 @@ using namespace std;
 #include <cstring>
 #include <fstream>
 #include<vector>
-int main () {
+#define int long long
+#include <ostream>
+
+signed main () {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    cout.tie(nullptr);
+
+   
+    int n   , x= 0, police = 0;cin>>n;
+    vector <int> v (n);
+
+    for (int i = 0; i < n; i++)
+        {cin>>v[i];
+
+    }
 
 
-    int n , m ; cin >> n >> m;
+    for (int i = 0; i < n; i++) {
+        if (v[i] >0) {police+=v[i];}
+        if (v[i] ==-1) {x++;}
+        if (police >0 and v[i]==-1) {x--;police--;}
 
 
-
-    for (int i = 1 ; i <= n ; ++ i) {
-        if (i % 2 == 1) {
-            for (int j = 1 ; j <= m ; ++ j) {
-                cout<<"#";
-            }
-
-            }
-
-        else {
-            for (int j = 1 ; j <= m ; ++ j) {
-                if (i%4==2) {
-                    if (j==m) {cout<<"#";}
-                    else {cout<<".";}
-                }
-                else {
-                    if (j==1) {cout<<"#";}
-                    else {cout<<".";}
-                }
-            }
+    }
 
 
 
 
 
-
-        }
-        cout << endl;
-        }
-
-
-
-
-
-
-
-
-
-
-
+    cout<<x<<endl;
 
 
 }
