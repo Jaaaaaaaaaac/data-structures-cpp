@@ -8,36 +8,45 @@ using namespace std;
 #include <fstream>
 #include<vector>
 #define int long long
-#include <ostream>
 
 signed main () {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-   
-    int n   , x= 0, police = 0;cin>>n;
-    vector <int> v (n);
 
-    for (int i = 0; i < n; i++)
-        {cin>>v[i];
 
+     int n ; cin>>n;
+    char arr [n][n];
+    for (int i = 0 ; i < n ; i++) {
+        for (int j = 0 ; j < n ; j++) {
+            cin>>arr [i][j];
+        }
     }
 
 
-    for (int i = 0; i < n; i++) {
-        if (v[i] >0) {police+=v[i];}
-        if (v[i] ==-1) {x++;}
-        if (police >0 and v[i]==-1) {x--;police--;}
+    int x  = 0 ;
 
+    for (int i = 0 ; i < n ; i++) {
+        for (int j = 0 ; j < n ; j++) {
 
+            int count=0;
+            if (i>0 and arr[i-1][j]=='o') {count++;}//up
+
+            if (i<n-1 and arr[i+1][j]=='o') {count++;}//down
+
+            if (j>0 and arr[i][j-1]=='o') {count++;}//left
+
+            if (j<n-1 and arr[i][j+1]=='o') {count++;}//right
+
+            if (count%2==1){cout<<"NO"; return 0;}
+
+        }
     }
+    cout<<"YES";return 0;
 
 
 
-
-
-    cout<<x<<endl;
 
 
 }
