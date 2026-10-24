@@ -8,45 +8,42 @@ using namespace std;
 #include <fstream>
 #include<vector>
 #define int long long
-
+#include <ostream>
 signed main () {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
+    int n ;cin>>n;
+    int arr [n];
+    int s  = 0 , d = 0 ;
 
 
-     int n ; cin>>n;
-    char arr [n][n];
-    for (int i = 0 ; i < n ; i++) {
-        for (int j = 0 ; j < n ; j++) {
-            cin>>arr [i][j];
+    for(int i=0;i<n;i++) {
+        cin>>arr[i];
+    }
+
+    int l=0 , r=n-1 ;
+    for(int i=0;i<n;i++) {
+
+
+
+        if (i%2==0){
+            if (arr[l]>arr[r]){s+=arr[l]; l++;}
+            else{s+=arr[r];r--;}
+        }
+
+        else {
+            if (arr[l]>arr[r]) {d+=arr[l];l++;}
+            else{d+=arr[r];r--;}
         }
     }
 
 
-    int x  = 0 ;
 
-    for (int i = 0 ; i < n ; i++) {
-        for (int j = 0 ; j < n ; j++) {
-
-            int count=0;
-            if (i>0 and arr[i-1][j]=='o') {count++;}//up
-
-            if (i<n-1 and arr[i+1][j]=='o') {count++;}//down
-
-            if (j>0 and arr[i][j-1]=='o') {count++;}//left
-
-            if (j<n-1 and arr[i][j+1]=='o') {count++;}//right
-
-            if (count%2==1){cout<<"NO"; return 0;}
-
-        }
-    }
-    cout<<"YES";return 0;
-
-
+    cout<<s<<" "<<d<<endl;
 
 
 
 }
+
