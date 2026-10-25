@@ -14,34 +14,27 @@ signed main () {
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int n ;cin>>n;
-    int arr [n];
-    int s  = 0 , d = 0 ;
+
+    int n ; cin>>n;
+
+    if (n>=0){cout<<n;return 0;}
+
+    int s = n%10;
+    int d =n/10;
+    int p = d ;
 
 
-    for(int i=0;i<n;i++) {
-        cin>>arr[i];
-    }
+    int f =d%10;
+    int v=n/100;
+    int x = v;
+    x=v*10+(s);
 
-    int l=0 , r=n-1 ;
-    for(int i=0;i<n;i++) {
+    //cout<<s<<" "<<f<<endl;
+    //cout<<p<<" "<<x<<endl;
 
+    if (p>=x){cout<<p;}
+    else{cout<<x;}
 
-
-        if (i%2==0){
-            if (arr[l]>arr[r]){s+=arr[l]; l++;}
-            else{s+=arr[r];r--;}
-        }
-
-        else {
-            if (arr[l]>arr[r]) {d+=arr[l];l++;}
-            else{d+=arr[r];r--;}
-        }
-    }
-
-
-
-    cout<<s<<" "<<d<<endl;
 
 
 
